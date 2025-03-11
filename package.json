@@ -1,0 +1,22 @@
+{
+  "name": "my-app",
+  "version": "1.2.0",
+  "description": "Creating node application with login screen and testing it using Selenium",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.cjs",
+    "test": "npx mocha test/end-to-end.test.mjs"
+  },
+  "author": "Utrains",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "chai": "^5.1.0",
+    "chai-http": "^4.4.0",
+    "mocha": "^10.4.0",
+    "puppeteer": "^22.7.1"
+  }
+}
