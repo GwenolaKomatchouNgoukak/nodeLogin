@@ -28,7 +28,8 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t node-login-app .'
+                sh "docker --version"
+                sh "docker build -t node-login-app ."
                 // script {
                 //     docker.build("${ECR_REPOSITORY}")
                 // }
