@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        docker { image 'node:14' }
-    }
+    agent any
     // set up environment
     environment {
         HOME = '.'
@@ -16,6 +14,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
+                sh 'sudo yum install -y nodejs14'
                 sh 'node --version'
             }
         }
