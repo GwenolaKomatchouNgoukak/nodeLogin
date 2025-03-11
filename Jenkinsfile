@@ -1,8 +1,7 @@
 pipeline {
-    agent any
-    // {
-    //     docker { image 'node:14' }
-    // }
+    agent {
+        docker { image 'node:14' }
+    }
     // set up environment
     environment {
         HOME = '.'
