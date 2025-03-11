@@ -28,9 +28,10 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.build("${ECR_REPOSITORY}")
-                }
+                sh 'docker build -t node-login-app .'
+                // script {
+                //     docker.build("${ECR_REPOSITORY}")
+                // }
             }
         }
 
@@ -42,9 +43,11 @@ pipeline {
 
         stage('Push Docker Image to ECR') {
             steps {
-                script {
-                    docker.image("${ECR_REPOSITORY}").push("latest")
-                }
+                sh "docker tag ${ECR_REPOSITORY}:latest 767397795869.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:latest"
+                sh "docker push 767397795869.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}:latest"
+                // script {
+                //     docker.image("${ECR_REPOSITORY}").push("latest")
+                // }
             }
         }
 
