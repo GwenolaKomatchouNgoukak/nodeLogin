@@ -2,12 +2,11 @@ FROM node
 
 WORKDIR /usr/src/app
 
-COPY my-app-1.2.0.tgz .
+COPY package*.json ./
 
-RUN tar -xzf my-app-1.2.0.tgz && \
-    mv package/* ./ && \
-    rm -rf package && \
-    npm install
+RUN npm install
+
+COPY . .
 
 
 # Run tests
